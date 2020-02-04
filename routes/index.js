@@ -38,24 +38,24 @@ router.put('/profile/:user_id', (req, res, next) => {
   res.send('PUT /profile/:user_id');
 });
 
-/* GET /forgot-pw */
-router.get('/forgot-pw', (req, res, next) => {
-  res.send('GET /forgot-pw');
+/* GET /forgot */
+router.get('/forgot', (req, res, next) => {
+  res.send('GET /forgot');
 });
 
-/* PUT /forgot-pw */
-router.post('/forgot-pw', (req, res, next) => {
-  res.send('PUT /forgot-pw');
+/* PUT /forgot */
+router.post('/forgot', (req, res, next) => {
+  res.send('PUT /forgot');
 });
 
-/* GET /reset-pw/:token */
-router.get('/reset-pw/:token', (req, res, next) => {
-  res.send('GET /reset-pw/:token');
+/* GET /reset/:token */
+router.get('/reset/:token', (req, res, next) => {
+  res.send('GET /reset/:token');
 });
 
-/* PUT /reset-pw/:token */
-router.put('/reset-pw/:token', (req, res, next) => {
-  res.send('GET /reset-pw/:token');
+/* PUT /reset/:token */
+router.put('/reset/:token', (req, res, next) => {
+  res.send('GET /reset/:token');
 });
 
 
