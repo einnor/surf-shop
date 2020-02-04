@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 // const bodyParser = require('body-parser');
 const logger = require('morgan');
 const passport = require('passport');
+const session = require('express-session');
 
 // Require models
 const User = require('./models/User');
@@ -27,6 +28,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configure Passport and Sessions
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true
+}));
+
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
