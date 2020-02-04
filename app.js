@@ -6,6 +6,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
 
 // Require models
 const User = require('./models/User');
@@ -16,6 +19,14 @@ const postsRouter = require('./routes/posts');
 const reviewsRouter = require('./routes/reviews');
 
 const app = express();
+
+// Connect to the database
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', () => {
+  // We're connected
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
