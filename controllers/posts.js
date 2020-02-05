@@ -10,7 +10,7 @@ const postNew = (req, res, next) => {
 };
 
 const postCreate = async (req, res, next) => {
-  const post = await Post.create(req.body);
+  const post = await Post.create(req.body.post);
   console.log(post);
   res.redirect(`/posts/${post.id}`);
 }
@@ -30,6 +30,11 @@ const postUpdate = async (req, res, next) => {
   res.redirect(`/posts/${post.id}`);
 };
 
+const postDestroy = async (req, res, next) => {
+  await Post.findByIdAndDelete(req.params.id);
+  res.redirect('/posts');
+};
+
 
 module.exports = {
   postIndex,
@@ -38,4 +43,5 @@ module.exports = {
   postShow,
   postEdit,
   postUpdate,
+  postDestroy,
 };
