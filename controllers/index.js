@@ -1,3 +1,5 @@
+const passport = require('passport');
+
 const User = require('../models/User');
 
 const postRegister = async (req, res, next) => {
@@ -10,6 +12,11 @@ const postRegister = async (req, res, next) => {
   res.redirect('/');
 };
 
+const postLogin = (req, res, next) => {
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' });
+};
+
 module.exports = {
   postRegister,
+  postLogin,
 };
