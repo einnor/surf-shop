@@ -20,9 +20,16 @@ const showPost = async (req, res, next) => {
   res.render('posts/show', { post });
 };
 
+const editPost = async (req, res, next) => {
+  const post = await Post.findById(req.params.id);
+  res.render('posts/edit', { post });
+};
+
+
 module.exports = {
   getPosts,
   newPost,
   createPosts,
   showPost,
+  editPost,
 };
