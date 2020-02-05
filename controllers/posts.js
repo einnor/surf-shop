@@ -16,8 +16,8 @@ const createPosts = async (req, res, next) => {
 }
 
 const showPost = async (req, res, next) => {
-  const post = await Post.findOne({ id: req.params.id });
-  res.render('posts/show', { posts });
+  const post = await Post.findById(req.params.id);
+  res.render('posts/show', { post });
 };
 
 module.exports = {
