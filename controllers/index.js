@@ -16,7 +16,7 @@ const postLogin = (req, res, next) => {
   passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' })(req, res, next);
 };
 
-const logout = (req, res, next) => {
+const getLogout = (req, res, next) => {
   req.logout();
   res.redirect('/');
 };
@@ -24,5 +24,5 @@ const logout = (req, res, next) => {
 module.exports = {
   postRegister,
   postLogin,
-  logout,
+  getLogout,
 };
