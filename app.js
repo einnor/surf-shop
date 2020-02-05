@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
@@ -35,6 +35,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(bodyParser({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

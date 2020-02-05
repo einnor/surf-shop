@@ -25,6 +25,11 @@ const postEdit = async (req, res, next) => {
   res.render('posts/edit', { post });
 };
 
+const postUpdate = async (req, res, next) => {
+  const post = await Post.findByIdAndUpdate(req.params.id, req.body.post);
+  res.redirect(`/posts/${post.id}`);
+};
+
 
 module.exports = {
   postIndex,
@@ -32,4 +37,5 @@ module.exports = {
   postCreate,
   postShow,
   postEdit,
+  postUpdate,
 };
