@@ -13,10 +13,16 @@ const postRegister = async (req, res, next) => {
 };
 
 const postLogin = (req, res, next) => {
-  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' });
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' })(req, res, next);
+};
+
+const logout = (req, res, next) => {
+  req.logout();
+  res.redirect('/');
 };
 
 module.exports = {
   postRegister,
   postLogin,
+  logout,
 };
