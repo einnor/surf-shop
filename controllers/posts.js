@@ -11,6 +11,7 @@ const newPost = (req, res, next) => {
 
 const createPosts = async (req, res, next) => {
   const post = await Post.create(req.body);
+  console.log(post);
   res.redirect(`/posts/${post.id}`);
 }
 
